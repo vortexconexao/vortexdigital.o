@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex Digital | Inteligência e Estratégia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --deep-blue: #0f172a;
+            --vortex-purple: #4f46e5;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--deep-blue);
+            color: white;
+            scroll-behavior: smooth;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, #f59e0b 0%, #d4af37 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        .chat-container {
+            height: 300px;
+            overflow-y: auto;
+        }
+        .vortex-border {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .service-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .service-card:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-5px);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+        .float-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/244957408493" target="_blank" class="float-wa bg-green-500 p-4 rounded-full flex items-center justify-center shadow-2xl">
+        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.94 3.659 1.437 5.63 1.438h.004c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- Header / Nav -->
+    <nav class="fixed w-full z-50 glass py-4 px-6 flex justify-between items-center">
+        <div class="text-2xl font-extrabold tracking-tighter">VORTEX<span class="text-[#d4af37]">DIGITAL</span></div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium opacity-80">
+            <a href="#servicos" class="hover:text-[#d4af37]">Serviços</a>
+            <a href="#ia-tools" class="hover:text-[#d4af37]">Ferramentas IA</a>
+            <a href="#depoimentos" class="hover:text-[#d4af37]">Depoimentos</a>
+        </div>
+        <a href="https://wa.me/244957408493" target="_blank" class="btn-gold px-5 py-2 rounded-full text-blue-900 font-bold text-sm">WhatsApp</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6 max-w-7xl mx-auto text-center">
+        <span class="inline-block px-4 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-xs mb-6 uppercase tracking-widest font-bold">Líderes em Expansão Digital em Angola</span>
+        <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight">
+            Elevamos o seu Negócio com <br> <span class="gold-gradient">Inteligência Estratégica</span>
+        </h1>
+        <p class="max-w-2xl mx-auto text-slate-400 text-lg mb-10">
+            Especialistas em documentos brasileiros, contas bancárias internacionais e marketing de alta performance.
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-12 mt-16 opacity-60">
+            <div class="text-center">
+                <div class="text-3xl font-bold">+5 Anos</div>
+                <div class="text-xs uppercase">No Mercado</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl font-bold">+500</div>
+                <div class="text-xs uppercase">Projetos</div>
+            </div>
+            <div class="text-center">
+                <div class="text-3xl font-bold">24/7</div>
+                <div class="text-xs uppercase">Suporte IA</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS PRESTADOS -->
+    <section id="servicos" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-extrabold mb-4">Nossos <span class="gold-gradient">Serviços Especializados</span></h2>
+            <p class="text-slate-400">Soluções completas para a sua presença global.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Serviço 1 -->
+            <div class="service-card glass p-6 rounded-2xl">
+                <div class="text-3xl mb-4">🆔</div>
+                <h3 class="font-bold text-lg mb-2 text-[#d4af37]">Documentação</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Criação de CPF e RG brasileiros de forma segura e rápida para não residentes.</p>
+            </div>
+            <!-- Serviço 2 -->
+            <div class="service-card glass p-6 rounded-2xl">
+                <div class="text-3xl mb-4">🏦</div>
+                <h3 class="font-bold text-lg mb-2 text-[#d4af37]">Contas Bancárias</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Abertura de conta brasileira com Pix e cartões Visa/Mastercard internacionais.</p>
+            </div>
+            <!-- Serviço 3 -->
+            <div class="service-card glass p-6 rounded-2xl">
+                <div class="text-3xl mb-4">📱</div>
+                <h3 class="font-bold text-lg mb-2 text-[#d4af37]">WhatsApp Virtual</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Números virtuais internacionais para WhatsApp Business e verificações.</p>
+            </div>
+            <!-- Serviço 4 -->
+            <div class="service-card glass p-6 rounded-2xl">
+                <div class="text-3xl mb-4">💻</div>
+                <h3 class="font-bold text-lg mb-2 text-[#d4af37]">Web Design</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Criação de sites profissionais e Landing Pages focadas em conversão.</p>
+            </div>
+            <!-- Serviço 5 -->
+            <div class="service-card glass p-6 rounded-2xl">
+                <div class="text-3xl mb-4">📈</div>
+                <h3 class="font-bold text-lg mb-2 text-[#d4af37]">Tráfego Pago</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Gestão de anúncios em Facebook, Instagram e Google Ads para escalar vendas.</p>
+            </div>
+            <!-- Serviço 6 -->
+            <div class="service-card glass p-6 rounded-2xl">
+                <div class="text-3xl mb-4">🎨</div>
+                <h3 class="font-bold text-lg mb-2 text-[#d4af37]">Design Gráfico</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Identidade visual, logótipos e artes profissionais para a sua marca.</p>
+            </div>
+            <!-- Serviço 7 -->
+            <div class="service-card glass p-6 rounded-2xl">
+                <div class="text-3xl mb-4">📱</div>
+                <h3 class="font-bold text-lg mb-2 text-[#d4af37]">Social Media</h3>
+                <p class="text-xs text-slate-400 leading-relaxed">Gestão estratégica de redes sociais para aumentar o seu engajamento.</p>
+            </div>
+            <!-- Serviço 8 -->
+            <div class="service-card glass p-6 rounded-2xl bg-indigo-500/10">
+                <div class="text-3xl mb-4">🚀</div>
+                <h3 class="font-bold text-lg mb-2 text-white">Consultoria 360º</h3>
+                <p class="text-xs text-slate-300 leading-relaxed">Análise completa do seu negócio e implementação de melhorias com IA.</p>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <a href="https://wa.me/244957408493" class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-bold transition-all">
+                Contratar via WhatsApp: +244 957 408 493
+            </a>
+        </div>
+    </section>
+
+    <!-- IA INTERACTIVE TOOLS -->
+    <section id="ia-tools" class="py-20 px-6 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+            
+            <!-- Tool 1: Assistente de Consultoria -->
+            <div class="glass p-8 rounded-3xl vortex-border">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center text-2xl">🤖</div>
+                    <div>
+                        <h3 class="text-xl font-bold">Assistente de Consultoria</h3>
+                        <p class="text-xs text-slate-400">Powered by Gemini AI</p>
+                    </div>
+                </div>
+                <div id="chatWindow" class="chat-container mb-4 space-y-4 text-sm p-2">
+                    <div class="bg-indigo-500/20 p-3 rounded-2xl rounded-tl-none border border-indigo-500/30">
+                        Olá! Sou o assistente da Vortex. Qual é o seu maior desafio digital hoje? (Ex: Criar conta brasileira, tráfego pago, site...)
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <input id="chatInput" type="text" placeholder="Escreva a sua dúvida..." class="flex-1 bg-slate-800 border-none rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 ring-[#d4af37]">
+                    <button onclick="askGemini()" class="btn-gold p-3 rounded-xl">
+                        🚀
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tool 2: Gerador de Ideias -->
+            <div class="glass p-8 rounded-3xl vortex-border">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center text-2xl">💡</div>
+                    <div>
+                        <h3 class="text-xl font-bold">Gerador de Negócios</h3>
+                        <p class="text-xs text-slate-400">Estratégia Personalizada</p>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <select id="niche" class="w-full bg-slate-800 rounded-xl px-4 py-3 text-sm outline-none">
+                        <option value="e-commerce">E-commerce / Vendas Online</option>
+                        <option value="servicos">Prestação de Serviços</option>
+                        <option value="infoprodutos">Infoprodutos / Mentorias</option>
+                    </select>
+                    <input id="budget" type="number" placeholder="Orçamento Estimado (AKZ ou USD)" class="w-full bg-slate-800 rounded-xl px-4 py-3 text-sm outline-none">
+                    <button onclick="generateIdea()" class="w-full py-4 rounded-xl border-2 border-[#d4af37] text-[#d4af37] font-bold hover:bg-[#d4af37] hover:text-blue-900 transition-all">
+                        Gerar Estratégia de Sucesso
+                    </button>
+                    <div id="ideaResult" class="hidden mt-4 p-4 bg-amber-500/10 border border-amber-500/30 rounded-xl text-xs leading-relaxed italic text-white">
+                        <!-- Result -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="py-20 px-6 max-w-7xl mx-auto">
+        <h2 class="text-center text-3xl font-bold mb-16">O que dizem os nossos <span class="gold-gradient">parceiros</span></h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="glass p-6 rounded-2xl">
+                <div class="text-[#d4af37] mb-4">★★★★★</div>
+                <p class="text-sm opacity-80 italic mb-6">"A Vortex Digital resolveu o meu problema com pagamentos internacionais em 24h. Profissionais de elite."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-700"></div>
+                    <div>
+                        <div class="text-xs font-bold">Miguel Soares</div>
+                        <div class="text-[10px] opacity-50">CEO, Digital Ventures</div>
+                    </div>
+                </div>
+            </div>
+            <div class="glass p-6 rounded-2xl border-indigo-500/30">
+                <div class="text-[#d4af37] mb-4">★★★★★</div>
+                <p class="text-sm opacity-80 italic mb-6">"Conseguimos triplicar as vendas em Angola através do tráfego pago gerido pela Vortex. Recomendo."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-700"></div>
+                    <div>
+                        <div class="text-xs font-bold">Ana Isabel</div>
+                        <div class="text-[10px] opacity-50">Fundadora, BellezaLuanda</div>
+                    </div>
+                </div>
+            </div>
+            <div class="glass p-6 rounded-2xl">
+                <div class="text-[#d4af37] mb-4">★★★★★</div>
+                <p class="text-sm opacity-80 italic mb-6">"O site criado ficou impecável. A integração com a IA que eles propuseram mudou o jogo."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-700"></div>
+                    <div>
+                        <div class="text-xs font-bold">Carlos Mendes</div>
+                        <div class="text-[10px] opacity-50">Freelancer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter / Captura -->
+    <section class="py-20 px-6 max-w-4xl mx-auto">
+        <div class="glass p-10 rounded-[3rem] text-center vortex-border">
+            <h3 class="text-2xl font-bold mb-4">Aceda ao Futuro Digital</h3>
+            <p class="text-sm text-slate-400 mb-8">Receba estratégias exclusivas de tráfego e IA mensalmente.</p>
+            <form onsubmit="handleLead(event)" class="flex flex-col md:flex-row gap-4">
+                <input required type="email" placeholder="O seu melhor e-mail" class="flex-1 bg-slate-800 rounded-2xl px-6 py-4 outline-none focus:ring-2 ring-indigo-500">
+                <button type="submit" class="btn-gold px-10 py-4 rounded-2xl text-blue-900 font-bold">Subscrever Agora</button>
+            </form>
+            <p id="msgLead" class="hidden mt-4 text-green-400 text-xs">Sucesso! Irá receber o nosso guia de boas-vindas.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 text-center border-t border-white/5 text-[10px] opacity-40 uppercase tracking-widest">
+        &copy; 2026 VORTEX DIGITAL | TODOS OS DIREITOS RESERVADOS | WhatsApp: +244 957 408 493
+    </footer>
+
+    <script>
+        const apiKey = ""; // Chave injetada no runtime
+
+        async function callGemini(prompt) {
+            const url = https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey};
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: "És o Consultor IA da Vortex Digital, uma agência de Angola que oferece: CPF/RG Brasileiro, Contas Pix, Cartões Internacionais, WhatsApp Virtual, Sites, Tráfego Pago, Social Media e Design. Seja profissional, persuasivo e em português de Portugal." }] }
+            };
+
+            let delay = 1000;
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        body: JSON.stringify(payload)
+                    });
+                    const data = await response.json();
+                    return data.candidates?.[0]?.content?.parts?.[0]?.text;
+                } catch (e) {
+                    await new Promise(res => setTimeout(res, delay));
+                    delay *= 2;
+                }
+            }
+            return "Peço desculpa, estou com uma instabilidade. Por favor, contacte o suporte via WhatsApp: +244 957 408 493.";
+        }
+
+        async function askGemini() {
+            const input = document.getElementById('chatInput');
+            const window = document.getElementById('chatWindow');
+            if (!input.value) return;
+
+            const userMsg = input.value;
+            input.value = "";
+            window.innerHTML += <div class="bg-white/5 p-3 rounded-2xl rounded-tr-none ml-10 text-right text-white">${userMsg}</div>;
+            window.scrollTop = window.scrollHeight;
+
+            const loadingId = "loading-" + Date.now();
+            window.innerHTML += <div id="${loadingId}" class="bg-indigo-500/20 p-3 rounded-2xl rounded-tl-none mr-10 animate-pulse text-white">A pensar...</div>;
+            
+            const response = await callGemini(userMsg);
+            document.getElementById(loadingId).classList.remove('animate-pulse');
+            document.getElementById(loadingId).innerText = response;
+            window.scrollTop = window.scrollHeight;
+        }
+
+        async function generateIdea() {
+            const niche = document.getElementById('niche').value;
+            const budget = document.getElementById('budget').value;
+            const resultBox = document.getElementById('ideaResult');
+            
+            resultBox.classList.remove('hidden');
+            resultBox.innerText = "A processar nicho e orçamento para criar o seu plano de ação...";
+
+            const prompt = Gera uma estratégia de negócio curta (máximo 100 palavras) para o nicho ${niche} com um orçamento de ${budget}. Foca em como a Vortex Digital pode ajudar (especialmente tráfego e branding).;
+            const response = await callGemini(prompt);
+            
+            resultBox.innerText = response;
+        }
+
+        function handleLead(e) {
+            e.preventDefault();
+            document.getElementById('msgLead').classList.remove('hidden');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
